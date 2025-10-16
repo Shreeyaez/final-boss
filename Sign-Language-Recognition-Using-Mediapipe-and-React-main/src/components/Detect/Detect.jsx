@@ -170,7 +170,11 @@ const Detect = () => {
         {accessToken ? (
           <>
             <div style={{ position: "relative" }}>
-              <Webcam audio={false} ref={webcamRef} className="signlang_webcam" />
+              <Webcam
+                audio={false}
+                ref={webcamRef}
+                className="signlang_webcam"
+              />
               <canvas ref={canvasRef} className="signlang_canvas" />
 
               <div className="signlang_data-container">
@@ -245,8 +249,8 @@ const Detect = () => {
             <h1 className="gradient__text">Please Login !</h1>
             <img src={DisplayImg} alt="display-img" />
             <p>
-              We Save Your Detection Data to show your progress and learning in dashboard,
-              So please Login to Test this Detection Feature.
+              We Save Your Detection Data to show your progress and learning in
+              dashboard, So please Login to Test this Detection Feature.
             </p>
           </div>
         )}

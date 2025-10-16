@@ -1,14 +1,25 @@
 .signlang_detection-container {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  font-family: var(--font-family);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffe1f0, #ffeaf6);
+  min-height: 100vh;
+  color: #4a004e;
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Webcam + Canvas */
 .signlang_webcam {
   width: 600px;
   height: 500px;
-  z-index: 999;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(255, 0, 127, 0.3);
+  border: 2px solid rgba(255, 0, 127, 0.2);
+  z-index: 2;
 }
 
 .signlang_canvas {
@@ -17,203 +28,193 @@
   top: 0;
   width: 600px;
   height: 500px;
-  z-index: 999;
+  z-index: 1;
+  border-radius: 16px;
 }
 
+/* Data Container */
 .signlang_data-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 1rem;
   text-align: center;
+}
+
+.signlang_data-container button {
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background: linear-gradient(135deg, #ff007f, #ff99cc);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signlang_data-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 127, 0.4);
 }
 
 .signlang_data-container .signlang_data {
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-}
-
-.signlang_data-container button {
-  width: 100px;
-  height: 30px;
-  font-size: 20px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  background-color: var(--color-subtext);
-  color: #fff;
-  font-family: var(--font-family);
-  border-radius: 8px;
+  margin-top: 1rem;
 }
 
 .signlang_data-container p {
-  font-size: 20px;
-  margin: 1rem;
-  width: 20%;
-  display: flex;
-  justify-content: flex-start;
+  font-size: 22px;
+  margin-right: 1rem;
+  color: #ff007f;
+  font-weight: 600;
 }
 
+/* Gesture Output */
 .gesture_output {
-  color: var(--color-subtext);
-  width: 100%;
+  color: #ff007f;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Image Section */
+.signlang_imagelist-container {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .signlang_imagelist-container h2 {
-  /* color: var(--color-subtext); */
-  font-size: 25px;
+  color: #4a004e;
+  font-size: 28px;
   text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
+  font-weight: 700;
 }
 
 .signlang_image-div {
-  width: 100%;
-  height: 550px;
+  background: #ffffffaa;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
-
 
 .signlang_image-div img {
   width: 400px;
   height: 300px;
-  margin-bottom: 8rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
 }
 
 .signlang_image-div button {
   width: 50%;
-  background-color: inherit;
+  background: transparent;
   outline: none;
   border: none;
-  color: var(--color-subtext);
+  color: #ff007f;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
-.signlang_imagelist-container h3 {
-  margin-bottom: 10rem;
-  line-height: 2;
+.signlang_image-div button:hover {
+  color: #d4006b;
 }
 
-
-.signlang_detection_notLoggedIn{
+/* Not Logged In Section */
+.signlang_detection_notLoggedIn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   margin: 2rem;
+  padding: 2rem;
 }
 
-.signlang_detection_notLoggedIn h1{
+.signlang_detection_notLoggedIn h1 {
   letter-spacing: 5px;
   font-weight: 800;
+  color: #ff007f;
 }
 
-.signlang_detection_notLoggedIn p{
-  color: #fff;
+.signlang_detection_notLoggedIn p {
+  color: #4a004e;
   font-size: 1rem;
-  text-align: center;
+  font-weight: 600;
   width: 60%;
-  letter-spacing: 2px;
-  font-weight: bold;
+  margin-top: 1rem;
 }
 
-.signlang_detection_notLoggedIn img{
-  width: 600px;
-  height: 400px;
-  object-fit: contain;
+.signlang_detection_notLoggedIn img {
+  width: 500px;
+  height: auto;
+  border-radius: 12px;
   margin: 1rem 0;
-  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(255, 0, 127, 0.3);
 }
 
+/* Responsiveness */
 @media screen and (max-width: 1080px) {
   .signlang_webcam {
-    width: 550px;
-    height: 500px;
+    width: 500px;
+    height: 400px;
   }
 
   .signlang_canvas {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 550px;
-    height: 500px;
-  }
-
-  .signlang_image-div {
-    width: fit-content;
+    width: 500px;
     height: 400px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .signlang_detection-container {
+    flex-direction: column;
+    align-items: center;
   }
 
   .signlang_image-div img {
     width: 300px;
-    height: 300px;
-  }
-}
-
-@media screen and (max-width: 990px) {
-  .signlang_detection-container {
-    flex-direction: column;
+    height: 250px;
   }
 
-  .signlang_detection_notLoggedIn img{
-    width: 500px;
-    height: 300px;
+  .signlang_detection_notLoggedIn img {
+    width: 350px;
   }
 }
 
 @media screen and (max-width: 550px) {
-
-    .signlang_webcam {
-        width: 100%;
-        height: fit-content;
-    }
-      
-    .signlang_canvas {
-        width: 100%;
-        height: fit-content;
-    }
-
-    .signlang_image-div {
-        width: fit-content;
-        height: 300px;
-    }
-
-    .signlang_image-div img {
-        width: 200px;
-        height: 150px;
-    }
-
-    .signlang_imagelist-container h3 {
-      text-align: center;
-    }
-
-    .signlang_data-container .signlang_data {
-      padding: 0 0.5rem;
-    }
-
-    .signlang_data-container p {
-      font-size: 18px;
-      width: 30%;
-    }
-
-    .signlang_detection_notLoggedIn img{
-      width: 300px;
-      height: 300px;
-      margin: 0;
-    }
-
-    .signlang_detection_notLoggedIn p{
-      font-size: 0.8rem;
-      width: 100%;
-    }
-    
-
+  .signlang_webcam,
+  .signlang_canvas {
+    width: 100%;
+    height: auto;
   }
-  
+
+  .signlang_image-div img {
+    width: 220px;
+    height: 180px;
+  }
+
+  .signlang_detection_notLoggedIn img {
+    width: 250px;
+    height: 200px;
+  }
+
+  .signlang_detection_notLoggedIn p {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}
