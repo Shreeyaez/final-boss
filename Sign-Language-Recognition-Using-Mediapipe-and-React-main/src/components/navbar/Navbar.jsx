@@ -38,48 +38,29 @@ const Navbar = ({ notifyMsg }) => {
 
   return (
     <div className="signlang_navbar  gradient__bg">
-      <div className="singlang_navlinks">
-        <div className="signlang_navlinks_logo">
-          <a href="/">
-            <img className="logo" src={logo} alt="logo" />
-          </a>
-        </div>
+     <div className="signlang_navbar">
+  <div className="signlang_navlinks_logo">
+    <a href="/"><img className="logo" src={logo} alt="logo" /></a>
+  </div>
 
-        <div className="signlang_navlinks_container">
-          <p>
-            <Link to="/">Home</Link>
-          </p>
+  <div className="signlang_navlinks_container">
+    <p><Link to="/">Home</Link></p>
+    <p><Link to="/detect">Detect</Link></p>
+    {accessToken && <p><Link to="/dashboard">Dashboard</Link></p>}
+  </div>
 
-          <p>
-            <Link to="/detect">Detect</Link>
-          </p>
+  <div className="signlang_auth-data">
+    {accessToken ? (
+      <>
+        <img src={user?.photoURL} alt="user-icon" />
+        <button onClick={handleLogout}>Logout</button>
+      </>
+    ) : (
+      <button onClick={handleLogin}>Login</button>
+    )}
+  </div>
+</div>
 
-          {/* <p>
-            <Link to="/guide">Guide</Link>
-          </p> */}
-
-          {accessToken && (
-            <p>
-              <Link to="/dashboard">Dashboard</Link>
-            </p>
-          )}
-        </div>
-
-        <div className="signlang_auth-data">
-          {accessToken ? (
-            <>
-              <img src={user?.photoURL} alt="user-icon" />
-              <button type="button" onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <button type="button" onClick={handleLogin}>
-              Login
-            </button>
-          )}
-        </div>
-      </div>
 
       <div className="signlang__navbar-menu">
         {toggle ? (
