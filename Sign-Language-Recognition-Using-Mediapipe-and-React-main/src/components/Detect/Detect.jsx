@@ -278,7 +278,6 @@ const Detect = () => {
         ) : (
           <div className="signlang_detection_notLoggedIn">
             <h1 className="gradient__text">Please Login !</h1>
-            <img src={DisplayImg} alt="display-img" />
             <p>
               We Save Your Detection Data to show your progress and learning in
               dashboard, So please Login to Test this Detection Feature.

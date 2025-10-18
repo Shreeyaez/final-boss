@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="signlang__footer">
       <div className="signlang__footer-logo">
-        <img src={logo} alt="signlang_logo" />
+        <img src="pinklogo.png" alt="signlang_logo" />
       </div>
 
       <div className="signlang__footer-copyright">
