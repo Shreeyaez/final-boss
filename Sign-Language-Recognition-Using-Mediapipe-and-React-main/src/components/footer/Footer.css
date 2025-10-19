@@ -4,9 +4,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 4rem;
-  background: linear-gradient(135deg, #f8a1d1, #ffdde1);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #0b1a3c, #102a68); /* dark blue gradient */
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
   position: relative;
   z-index: 10;
@@ -15,15 +15,17 @@
 .signlang__footer-logo img {
   width: 100px;
   height: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
 }
 
 .signlang__footer-logo img:hover {
   transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
 }
 
 .signlang__footer-copyright h3 {
-  color: #4a004e;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   letter-spacing: 1px;
@@ -32,9 +34,12 @@
 }
 
 .signlang__footer-copyright h3 span {
-  color: #ff007f;
+  color: #0b1a3c; /* golden yellow accent */
   font-weight: 600;
 }
+
+/* Subtle divider line at the top */
+
 
 /* Mobile Responsive */
 @media screen and (max-width: 700px) {

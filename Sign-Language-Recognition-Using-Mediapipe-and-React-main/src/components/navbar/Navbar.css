@@ -5,9 +5,9 @@
     align-items: center;
     padding: 1rem 2rem;
     width: 100%;
-    background: linear-gradient(120deg, #a8edea, #fed6e3);
+    background: #1e3a8a; /* professional dark blue */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-
 
 /* ---------- Logo ---------- */
 .signlang_navlinks_logo {
@@ -28,7 +28,7 @@
 .signlang_navlinks_container {
     display: flex;
     justify-content: center;
-    flex: 1; /* take remaining space */
+    flex: 1;
     gap: 2rem;
 }
 
@@ -37,18 +37,18 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 18px;
-    color: #333;
+    color: #ffffff; /* white text for professional look */
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .signlang_navlinks_container p a {
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
 }
 
 .signlang_navlinks_container p:hover a {
-    color: #ff758f;
+    color: #facc15; /* subtle accent on hover */
     transform: scale(1.05);
 }
 
@@ -63,14 +63,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid #ff758f;
+    border: 2px solid #ffffff;
 }
 
 .signlang_auth-data button,
 .signlang__navbar-menu_container button {
     padding: 0.5rem 1.2rem;
-    color: #fff;
-    background: #ff758f;
+    color: #1e3a8a; /* text in dark blue for professional contrast */
+    background: #ffffff; /* white button for clean look */
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -81,7 +81,8 @@
 
 .signlang_auth-data button:hover,
 .signlang__navbar-menu_container button:hover {
-    background: #ff92a9;
+    background: #facc15; /* yellow hover for highlight */
+    color: #1e3a8a;
     transform: translateY(-2px);
 }
 
@@ -94,7 +95,7 @@
 .signlang__navbar-menu_container {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: #ffffff;
     padding: 1.5rem 2rem;
     position: absolute;
     right: 0;
@@ -112,11 +113,11 @@
 }
 
 .signlang__navbar-menu_container p a {
-    color: #333;
+    color: #1e3a8a;
 }
 
 .signlang__navbar-menu_container p:hover a {
-    color: #ff758f;
+    color: #facc15;
 }
 
 /* Auth buttons in mobile menu */

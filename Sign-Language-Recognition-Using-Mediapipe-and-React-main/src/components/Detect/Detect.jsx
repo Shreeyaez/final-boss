@@ -262,7 +262,7 @@ const Detect = () => {
               </div>
             </div>
 
-            <div className="signlang_imagelist-container">
+            {/* <div className="signlang_imagelist-container">
               <h2 className="gradient__text">Image</h2>
               <div className="signlang_image-div">
                 {currentImage ? (
@@ -273,7 +273,7 @@ const Detect = () => {
                   </h3>
                 )}
               </div>
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="signlang_detection_notLoggedIn">

@@ -5,9 +5,9 @@
   flex-wrap: wrap;
   padding: 2rem;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #ffe1f0, #ffeaf6);
+  background: #f9fafb; /* soft light gray background */
   min-height: 100vh;
-  color: #4a004e;
+  color: #1e3a8a; /* dark blue text for contrast */
   position: relative;
   overflow-x: hidden;
 }
@@ -17,8 +17,8 @@
   width: 600px;
   height: 500px;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(255, 0, 127, 0.3);
-  border: 2px solid rgba(255, 0, 127, 0.2);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2); /* subtle professional shadow */
+  border: 2px solid rgba(30, 58, 138, 0.2);
   z-index: 2;
 }
 
@@ -49,8 +49,8 @@
   font-weight: 600;
   border: none;
   outline: none;
-  background: linear-gradient(135deg, #ff007f, #ff99cc);
-  color: #fff;
+  background: #1e3a8a; /* dark blue button */
+  color: #ffffff;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -58,7 +58,7 @@
 
 .signlang_data-container button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 0, 127, 0.4);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .signlang_data-container .signlang_data {
@@ -72,13 +72,13 @@
 .signlang_data-container p {
   font-size: 22px;
   margin-right: 1rem;
-  color: #ff007f;
+  color: #1e3a8a;
   font-weight: 600;
 }
 
 /* Gesture Output */
 .gesture_output {
-  color: #ff007f;
+  color: #1e3a8a;
   font-size: 22px;
   font-weight: 700;
 }
@@ -90,17 +90,17 @@
 }
 
 .signlang_imagelist-container h2 {
-  color: #4a004e;
+  color: #1e3a8a;
   font-size: 28px;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: 700;
 }
 
 .signlang_image-div {
-  background: #ffffffaa;
+  background: #ffffff; /* clean white */
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   margin-top: 1rem;
   display: flex;
@@ -115,7 +115,7 @@
   border-radius: 12px;
   margin-bottom: 2rem;
   object-fit: cover;
-  box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.1);
 }
 
 .signlang_image-div button {
@@ -123,7 +123,7 @@
   background: transparent;
   outline: none;
   border: none;
-  color: #ff007f;
+  color: #1e3a8a;
   font-weight: 600;
   cursor: pointer;
   font-size: 18px;
@@ -131,7 +131,7 @@
 }
 
 .signlang_image-div button:hover {
-  color: #d4006b;
+  color: #facc15; /* subtle yellow hover */
 }
 
 /* Not Logged In Section */
@@ -148,11 +148,11 @@
 .signlang_detection_notLoggedIn h1 {
   letter-spacing: 5px;
   font-weight: 800;
-  color: #ff007f;
+  color: #1e3a8a;
 }
 
 .signlang_detection_notLoggedIn p {
-  color: #4a004e;
+  color: #1e3a8a;
   font-size: 1rem;
   font-weight: 600;
   width: 60%;
@@ -164,7 +164,7 @@
   height: auto;
   border-radius: 12px;
   margin: 1rem 0;
-  box-shadow: 0 5px 20px rgba(255, 0, 127, 0.3);
+  box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
 }
 
 /* Responsiveness */
