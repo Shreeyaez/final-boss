@@ -239,6 +239,18 @@ const Detect = () => {
                     fontWeight: "bold",
                     color: "#333",
                     letterSpacing: "5px",
+                    wordWrap: "break-word",
+                    whiteSpace: "normal",
+                    overflowWrap: "break-word",
+                    lineHeight: "1.5",
+                    width: "100%",
+                    maxHeight: "150px", // fixed height
+                    overflowY: "auto", // scroll if content is too long
+                    padding: "10px",
+                    background: "#fff",
+                    border: "1px solid #ddd",
+                    borderRadius: "8px",
+                    boxSizing: "border-box",
                   }}
                 >
                   {recordedSequence.length > 0
