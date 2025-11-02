@@ -10,6 +10,7 @@ import {
   Globe,
   Star,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -33,12 +34,16 @@ const Home = () => {
               fostering inclusion and seamless communication across all voices.
             </p>
             <div className="mt-10 flex gap-4">
-              <button className="bg-blue-900 hover:bg-blue-950 text-white px-8 py-3 rounded-full font-medium shadow-lg transition">
-                Try It Now
-              </button>
-              <button className="border border-blue-800 hover:bg-blue-50 text-blue-800 px-8 py-3 rounded-full font-medium transition">
-                Learn More
-              </button>
+              <Link to="/detect">
+                <button className="bg-blue-900 hover:bg-blue-950 text-white px-8 py-3 rounded-full font-medium shadow-lg transition">
+                  Try It Now
+                </button>
+              </Link>
+              <Link to="/learning">
+                <button className="border border-blue-800 hover:bg-blue-50 text-blue-800 px-8 py-3 rounded-full font-medium transition">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </motion.div>
 
