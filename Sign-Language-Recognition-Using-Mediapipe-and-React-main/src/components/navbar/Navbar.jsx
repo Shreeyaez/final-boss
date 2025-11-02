@@ -87,6 +87,10 @@ const Navbar = ({ notifyMsg }) => {
             <Link to="/detect" onClick={() => setToggle(false)}>
               Detect
             </Link>
+            <Link to="/learn">
+            Learn
+            </Link>
+
             {accessToken && (
               <Link to="/dashboard" onClick={() => setToggle(false)}>
                 Dashboard
