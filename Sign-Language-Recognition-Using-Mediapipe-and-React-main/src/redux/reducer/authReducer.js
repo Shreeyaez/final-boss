@@ -1,37 +1,37 @@
-import { LOAD_PROF, LOGIN_FAIL, LOGIN_REQ, LOGIN_SUCCESS, LOGOUT } from '../action-types';
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import {
+  LOAD_PROF,
+  LOGIN_FAIL,
+  LOGIN_REQ,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from "../action-types";
+
+const tokenFromCookie = Cookies.get("sign-language-ai-access-token");
+const userFromCookie = Cookies.get("sign-language-ai-user")
+  ? JSON.parse(Cookies.get("sign-language-ai-user"))
+  : null;
 
 const initialState = {
-    accessToken: Cookies.get('sign-language-ai-access-token') ? Cookies.get('sign-language-ai-access-token') : null,
+  accessToken: tokenFromCookie || null,
+  user: userFromCookie || null,
+  loading: false,
+  error: null,
+};
 
-    user: Cookies.get('sign-language-ai-user') ? JSON.parse(Cookies.get('sign-language-ai-user')) : null,
-    
-    loading: false
-}
-
-
-export const authReducer = (state = initialState, action)=>{
-      
-    const {type,payload} = action
-
-    switch(type){
-
-        case LOGIN_REQ:
-            return {...state,loading:true}
-        
-        case LOGIN_SUCCESS:
-            return {...state, accessToken:payload, loading:false}
-
-        case LOGIN_FAIL:
-            return {...state, accessToken:null, loading: false, error: payload}
-
-        case LOAD_PROF:
-            return {...state, user: payload}
-
-        case LOGOUT:
-            return {...state, accessToken: null, user: null}
-
-        default:
-            return state
-    }
-}
+export const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN_REQ:
+      return { ...state, loading: true };
+    case LOGIN_SUCCESS:
+      return { ...state, accessToken: action.payload, loading: false };
+    case LOAD_PROF:
+      return { ...state, user: action.payload, loading: false };
+    case LOGIN_FAIL:
+      return { ...state, error: action.payload, loading: false };
+    case LOGOUT:
+      return { accessToken: null, user: null, loading: false };
+    default:
+      return state;
+  }
+};

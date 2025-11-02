@@ -1,114 +1,114 @@
 import React, { useEffect, useState } from "react";
-import "./Navbar.css";
 import { Link } from "react-router-dom";
-import logo from "../../assests/logo2.png";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../../redux/actions/authaction";
+import "./Navbar.css";
 
 const Navbar = ({ notifyMsg }) => {
   const [toggle, setToggle] = useState(false);
+  const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.auth?.user);
-
-  const { accessToken } = useSelector((state) => state.auth);
+  const { accessToken, user } = useSelector((state) => state.auth);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    if (isLoggedIn && user) {
-      notifyMsg(
-        "success",
-        `Welcome! ${user?.name}, You Logged in Successfully`
-      );
+    if (isLoggedIn && user?.name) {
+      notifyMsg("success", `Welcome! ${user.name}, You Logged in Successfully`);
     }
   }, [isLoggedIn, user, notifyMsg]);
 
-  const handleLogin = () => {
-    dispatch(login());
-    setIsLoggedIn(true);
+  const handleLogin = async () => {
+    try {
+      await dispatch(login());
+      setIsLoggedIn(true);
+    } catch (error) {
+      notifyMsg("error", "Login failed! Try again.");
+      console.error(error);
+    }
   };
 
   const handleLogout = () => {
     dispatch(logout());
-    notifyMsg("success", "Logged Out Successfully !");
+    notifyMsg("success", "Logged Out Successfully!");
   };
 
   return (
-    <div className="signlang_navbar  gradient__bg">
-      <div className="signlang_navbar">
-        <div className="signlang_navlinks_logo">
-          <a href="/">
-            <img className="logo" src="whitelogo.png" alt="logo" />
-          </a>
-        </div>
-
-        <div className="signlang_navlinks_container">
-          <p>
-            <Link to="/">Home</Link>
-          </p>
-          <p>
-            <Link to="/detect">Detect</Link>
-          </p>
-          {accessToken && (
-            <p>
-              <Link to="/dashboard">Dashboard</Link>
-            </p>
-          )}
-        </div>
-
-        <div className="signlang_auth-data">
-          {accessToken ? (
-            <>
-              <img src={user?.photoURL} alt="user-icon" />
-              <button onClick={handleLogout}>Logout</button>
-            </>
-          ) : (
-            <button onClick={handleLogin}>Login</button>
-          )}
-        </div>
+    <nav className="navbar-container">
+      <div className="navbar-logo">
+        <Link to="/">
+          <img src="/whitelogo.png" alt="SignLang Logo" className="logo" />
+        </Link>
+        <h2 className="logo-text">SignLab</h2>
       </div>
 
-      <div className="signlang__navbar-menu">
-        {toggle ? (
-          <RiCloseLine
-            color="#fff"
-            size={27}
-            onClick={() => setToggle(false)}
-          />
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <Link to="/detect">Detect</Link>
+        {accessToken && <Link to="/dashboard">Dashboard</Link>}
+        <Link to="/learning">Learn</Link>
+      </div>
+
+      <div className="navbar-auth">
+        {accessToken ? (
+          <div className="user-info">
+            <img
+              src={user?.photoURL || "/default-user.png"}
+              alt="user-icon"
+              className="profile-pic"
+              onError={(e) => (e.target.src = "/default-user.png")}
+            />
+            <span className="username">
+              {user?.name || "Anonymous User"}
+            </span>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
         ) : (
-          <RiMenu3Line color="#fff" size={27} onClick={() => setToggle(true)} />
+          <button className="login-btn" onClick={handleLogin}>
+            Login
+          </button>
+        )}
+      </div>
+
+      <div className="navbar-menu">
+        {toggle ? (
+          <RiCloseLine size={28} color="#fff" onClick={() => setToggle(false)} />
+        ) : (
+          <RiMenu3Line size={28} color="#fff" onClick={() => setToggle(true)} />
         )}
         {toggle && (
-          <div className="signlang__navbar-menu_container scale-up-center">
-            <div className="signlang__navbar-menu_container-links">
-              <p>
-                <Link to="/">Home</Link>
-              </p>
-
-              <p>
-                <Link to="/detect">Detect</Link>
-              </p>
-
-              {accessToken && (
-                <p>
-                  <Link to="/dashboard">Dashboard</Link>
-                </p>
-              )}
-            </div>
-
-            <div className="signlang__navbar-menu_container-links-authdata">
+          <div className="navbar-menu-dropdown scale-up-center">
+            <Link to="/" onClick={() => setToggle(false)}>
+              Home
+            </Link>
+            <Link to="/detect" onClick={() => setToggle(false)}>
+              Detect
+            </Link>
+            {accessToken && (
+              <Link to="/dashboard" onClick={() => setToggle(false)}>
+                Dashboard
+              </Link>
+            )}
+           
+            
+            <div className="navbar-menu-auth">
               {accessToken ? (
                 <>
-                  <img src={user?.photoURL} alt="user-icon" />
-                  <button type="button" onClick={handleLogout}>
+                  <img
+                    src={user?.photoURL || "/default-user.png"}
+                    alt="user-icon"
+                    className="profile-pic"
+                    onError={(e) => (e.target.src = "/default-user.png")}
+                  />
+                  <button className="logout-btn" onClick={handleLogout}>
                     Logout
                   </button>
                 </>
               ) : (
-                <button type="button" onClick={handleLogin}>
+                <button className="login-btn" onClick={handleLogin}>
                   Login
                 </button>
               )}
@@ -116,7 +116,7 @@ const Navbar = ({ notifyMsg }) => {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

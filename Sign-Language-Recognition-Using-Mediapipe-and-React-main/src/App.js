@@ -10,6 +10,7 @@ import {
 } from "./components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Learning from "./components/Learning/Learning";
 
 const notifyMsg = (type, msg) => {
   if (type === "success") {
@@ -62,6 +63,16 @@ function App() {
           element={
             <Layout>
               <Dashboard/>
+            </Layout>
+          }
+        />
+
+        <Route
+          exact
+          path="/Learning"
+          element={
+            <Layout>
+              <Learning/>
             </Layout>
           }
         />

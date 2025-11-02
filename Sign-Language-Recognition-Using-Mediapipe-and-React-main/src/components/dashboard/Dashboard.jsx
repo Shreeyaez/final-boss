@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!authLoader && !accessToken) {
-      navigate("/");
+      navigate("/login");
     }
     dispatch(getSignData());
     dispatch(getTopUsers());
@@ -74,7 +74,9 @@ const Dashboard = () => {
                   {topUsers.map((user, index) => (
                     <div className="signlang_tank-row" key={index * 786}>
                       <h2 className="gradient__text">{user.rank}</h2>
-                      <h3>{user.username}</h3>
+                      <h3><span className="username">
+              {user.name || "Anonymous User"}
+            </span></h3>
                       <img
                         src={
                           user.rank === 1
